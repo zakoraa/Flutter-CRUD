@@ -35,10 +35,12 @@ class FormWidget extends StatelessWidget {
             ),
           ),
         ),
-        Text(
-          title,
-          overflow: TextOverflow.ellipsis,
-          style: const TextStyle(fontSize: 16),
+        SizedBox(
+          width: 140,
+          child: Text(
+            title,
+            overflow: TextOverflow.ellipsis,
+          ),
         ),
         GestureDetector(
           onTap: onTap,
