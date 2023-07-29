@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 
 class OutlineTextFieldWidget extends StatelessWidget {
-  const OutlineTextFieldWidget({super.key, required this.hintText});
+  const OutlineTextFieldWidget(
+      {super.key, required this.hintText, this.controller});
 
   final String hintText;
+  final controller;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(right: 10, bottom: 20),
       child: TextField(
+        controller: controller,
         style: const TextStyle(fontSize: 18),
         cursorColor: Colors.grey,
         decoration: InputDecoration(
