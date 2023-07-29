@@ -14,7 +14,7 @@ class AddOrEditPageTemplate extends StatelessWidget {
       this.buttonText,
       this.onTapButton});
 
-  final String? buttonText,titlePage;
+  final String? buttonText, titlePage;
   final form;
   final profilePictureIcon;
   final onPressedProfilePictureIcon;
@@ -54,7 +54,7 @@ class AddOrEditPageTemplate extends StatelessWidget {
                                     size: 40,
                                   )),
                             ),
-                             Text(
+                            Text(
                               titlePage!,
                               style: const TextStyle(
                                 fontSize: 25,
@@ -69,7 +69,7 @@ class AddOrEditPageTemplate extends StatelessWidget {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsets.only(top: 20, right: 20, left: 20),
+                            const EdgeInsets.only(top: 30, right: 20, left: 20),
                         child: Column(
                           children: [
                             Stack(
