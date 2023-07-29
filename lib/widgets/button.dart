@@ -23,7 +23,6 @@ class ButtonWidget extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         borderRadius: BorderRadius.circular(borderRadius),
-        splashColor: Colors.red,
         onTap: onTap,
         child: Container(
           height: height,
