@@ -32,11 +32,13 @@ class HomeView extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      IconButton(
-                        splashColor: Colors.transparent,
-                        onPressed: () => Get.to(() => const AddUserView(),
+                      GestureDetector(
+                        onTap: () => Get.to(() => const AddUserView(),
                             transition: Transition.rightToLeft),
-                        icon: const Icon(Icons.person_add_alt_1),
+                        child: const Icon(
+                          (Icons.person_add_alt_1),
+                          size: 30,
+                        ),
                       )
                     ],
                   ),
