@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tahap1_crud/module/addUserView/view/add_user_view.dart';
 import 'package:tahap1_crud/module/home/widgets/list_tile_widget.dart';
-import 'package:tahap1_crud/routes/route_name.dart';
-import 'package:tahap1_crud/utils/button.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -24,7 +23,7 @@ class HomeView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const SizedBox(
-                        height: 1.0,
+                        width: 15.0,
                       ),
                       const Text(
                         "Simple CRUD App",
@@ -35,8 +34,10 @@ class HomeView extends StatelessWidget {
                       ),
                       IconButton(
                         splashColor: Colors.transparent,
-                          onPressed: () =>Get.toNamed(RouteName.addUserView),
-                          icon: const Icon(Icons.person_add_alt_1),)
+                        onPressed: () => Get.to(() => const AddUserView(),
+                            transition: Transition.rightToLeft),
+                        icon: const Icon(Icons.person_add_alt_1),
+                      )
                     ],
                   ),
                   const SizedBox(
