@@ -13,7 +13,7 @@ class ListTileWiget extends StatelessWidget {
         width: Get.size.width,
         padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(
-            color: const Color.fromARGB(139, 158, 158, 158),
+            color: const Color.fromARGB(138, 110, 110, 110),
             borderRadius: BorderRadius.circular(10)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -50,7 +50,7 @@ class ListTileWiget extends StatelessWidget {
             Column(
               children: [
                 ButtonWidget(
-                    onTap: () => Get.to(()=> const EditUserView(),
+                    onTap: () => Get.to(() => const EditUserView(),
                         transition: Transition.rightToLeft),
                     text: "EDIT",
                     height: 30,
