@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tahap1_crud/module/editUserView/view/edit_user_view.dart';
 
-import '../../../utils/button.dart';
+import '../../../widgets/button.dart';
 
 class ListTileWiget extends StatelessWidget {
   const ListTileWiget({super.key});
@@ -48,8 +49,9 @@ class ListTileWiget extends StatelessWidget {
             ),
             Column(
               children: [
-                ButtonUtils(
-                    onTap: () {},
+                ButtonWidget(
+                    onTap: () => Get.to(()=> const EditUserView(),
+                        transition: Transition.rightToLeft),
                     text: "EDIT",
                     height: 30,
                     width: 100,
@@ -58,7 +60,7 @@ class ListTileWiget extends StatelessWidget {
                 const SizedBox(
                   height: 10.0,
                 ),
-                ButtonUtils(
+                ButtonWidget(
                     onTap: () {},
                     text: "DELETE",
                     height: 30,
