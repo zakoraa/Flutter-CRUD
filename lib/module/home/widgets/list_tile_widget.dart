@@ -4,14 +4,17 @@ import 'package:tahap1_crud/module/editUserView/view/edit_user_view.dart';
 
 import '../../../widgets/button.dart';
 
-class ListTileWiget extends StatelessWidget {
-  const ListTileWiget({super.key});
+class ListTileWidget extends StatelessWidget {
+  const ListTileWidget({super.key, required this.user});
+
+  final user;
 
   @override
   Widget build(BuildContext context) {
     return Container(
         width: Get.size.width,
         padding: const EdgeInsets.all(15),
+        margin: const EdgeInsets.only(bottom: 20),
         decoration: BoxDecoration(
             color: const Color.fromARGB(138, 110, 110, 110),
             borderRadius: BorderRadius.circular(10)),
@@ -23,7 +26,9 @@ class ListTileWiget extends StatelessWidget {
                 ClipRRect(
                     borderRadius: BorderRadius.circular(70),
                     child: Image.network(
-                      'https://icon-library.com/images/default-profile-icon/default-profile-icon-6.jpg',
+                      user.profilePicture == ""
+                          ? 'https://icon-library.com/images/default-profile-icon/default-profile-icon-6.jpg'
+                          : user.profilePicture,
                       height: 70,
                       width: 70,
                     )),
@@ -32,16 +37,16 @@ class ListTileWiget extends StatelessWidget {
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
-                      "NAME",
-                      style: TextStyle(fontSize: 18),
+                      user.username,
+                      style: const TextStyle(fontSize: 18),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 2.0,
                     ),
                     Text(
-                      "name@gmail.com",
+                      user.email,
                     ),
                   ],
                 )
@@ -50,8 +55,10 @@ class ListTileWiget extends StatelessWidget {
             Column(
               children: [
                 ButtonWidget(
-                    onTap: () => Get.to(() => const EditUserView(),
-                        transition: Transition.rightToLeft),
+                    onTap: () {
+                      Get.to(() => EditUserView(user: user),
+                          transition: Transition.rightToLeft);
+                    },
                     text: "EDIT",
                     height: 30,
                     width: 100,
