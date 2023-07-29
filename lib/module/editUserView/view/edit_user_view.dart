@@ -26,7 +26,7 @@ class EditUserView extends StatelessWidget {
           ),
           FormWidget(
             leading: "Password",
-            title: "*****",
+            title: "* * * * * *",
             trailing: Icons.keyboard_arrow_right,
             onTap: () {},
           ),
