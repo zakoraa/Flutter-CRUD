@@ -9,7 +9,9 @@ class ChangeUserDataController extends GetxController {
   void checkTextField(BuildContext context, String data) {
     if (textController.text.isEmpty) {
       ScaffoldMessengerUtils.showFloatingSnackBar(
-          context, "${data} user is empty. Please fill it in!");
+          context,
+          "$data user is empty. Please fill it in!",
+          const Color.fromARGB(255, 255, 92, 80));
     }
   }
 }
