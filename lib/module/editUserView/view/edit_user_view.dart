@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:tahap1_crud/module/editUserView/widgets/form_widget.dart';
 import 'package:tahap1_crud/pageTemplate/add_edit_user.dart';
-import 'package:tahap1_crud/widgets/button.dart';
-
-import '../../../widgets/text_field_widget.dart';
 
 class EditUserView extends StatelessWidget {
   const EditUserView({super.key});
@@ -11,16 +8,30 @@ class EditUserView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AddOrEditPageTemplate(
-        profilePictureIcon: Icons.edit,
-        textFieldForm: Column(
-          children: const [
-            TextFieldWidget(hintText: "Username", prefixIcon: Icons.person),
-            TextFieldWidget(hintText: "Email", prefixIcon: Icons.email),
-            TextFieldWidget(hintText: "Password", prefixIcon: Icons.key),
-            TextFieldWidget(
-                hintText: "Confirm Password", prefixIcon: Icons.key),
-          ],
-        ),
-        buttonText: "Confirm");
+      titlePage: "UPDATE USER",
+      profilePictureIcon: Icons.edit,
+      form: Column(
+        children: [
+          FormWidget(
+            leading: "Username",
+            title: "NAME",
+            trailing: Icons.keyboard_arrow_right,
+            onTap: () {},
+          ),
+          FormWidget(
+            leading: "Email",
+            title: "name@gmail.com",
+            trailing: Icons.keyboard_arrow_right,
+            onTap: () {},
+          ),
+          FormWidget(
+            leading: "Password",
+            title: "*****",
+            trailing: Icons.keyboard_arrow_right,
+            onTap: () {},
+          ),
+        ],
+      ),
+    );
   }
 }
