@@ -40,7 +40,7 @@ class ListTileWiget extends StatelessWidget {
                       height: 2.0,
                     ),
                     Text(
-                      "18 years old",
+                      "name@gmail.com",
                     ),
                   ],
                 )
