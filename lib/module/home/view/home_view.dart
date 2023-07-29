@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tahap1_crud/module/home/widgets/list_tile_widget.dart';
+import 'package:tahap1_crud/routes/route_name.dart';
 import 'package:tahap1_crud/utils/button.dart';
 
 class HomeView extends StatelessWidget {
@@ -33,7 +34,8 @@ class HomeView extends StatelessWidget {
                         ),
                       ),
                       IconButton(
-                          onPressed: () {},
+                        splashColor: Colors.transparent,
+                          onPressed: () =>Get.toNamed(RouteName.addUserView),
                           icon: const Icon(Icons.person_add_alt_1),)
                     ],
                   ),

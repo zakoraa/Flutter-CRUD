@@ -7,9 +7,10 @@ class ButtonUtils extends StatelessWidget {
       required this.width,
       required this.onTap,
       required this.borderRadius,
+      this.fontSize = 16 ,
       required this.bgColor});
   final String text;
-  final double height, width, borderRadius;
+  final double height, width, borderRadius,fontSize;
   final dynamic bgColor;
   final onTap;
 
@@ -31,8 +32,9 @@ class ButtonUtils extends StatelessWidget {
           child: Center(
             child: Text(
               text,
-              style: const TextStyle(
+              style:  TextStyle(
                 fontWeight: FontWeight.bold,
+                fontSize: fontSize
               ),
             ),
           ),

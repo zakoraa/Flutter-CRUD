@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tahap1_crud/module/addUserView/view/add_user_view.dart';
 import 'package:tahap1_crud/module/home/view/home_view.dart';
 import 'package:tahap1_crud/routes/routes.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(useMaterial3: true),
+      theme: ThemeData.dark(),
       home: const HomeView(),
       getPages: AppPage.pages,
     );
