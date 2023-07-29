@@ -5,9 +5,10 @@ import 'package:tahap1_crud/widgets/button.dart';
 import 'package:tahap1_crud/widgets/outline_text_field_widget.dart';
 
 class ChangeUserDataView extends StatelessWidget {
-  const ChangeUserDataView({super.key, required this.data});
+  const ChangeUserDataView({super.key, required this.data, this.user});
 
   final String data;
+  final user;
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +20,7 @@ class ChangeUserDataView extends StatelessWidget {
       height: Get.size.height * 0.9,
       width: Get.size.width * 0.9,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(
             height: 10.0,
@@ -43,6 +45,15 @@ class ChangeUserDataView extends StatelessWidget {
           ),
           const SizedBox(
             height: 50.0,
+          ),
+          Text(
+            "Previous $data : $user",
+            style: const TextStyle(
+              color: Colors.grey,
+            ),
+          ),
+          const SizedBox(
+            height: 30.0,
           ),
           OutlineTextFieldWidget(
             controller: controller.textController,
