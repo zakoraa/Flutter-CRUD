@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tahap1_crud/module/changeUserDataView/controller/change_user_data_controller.dart';
 import 'package:tahap1_crud/widgets/button.dart';
 import 'package:tahap1_crud/widgets/outline_text_field_widget.dart';
 
@@ -10,6 +11,7 @@ class ChangeUserDataView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ChangeUserDataController controller = Get.put(ChangeUserDataController());
     return Scaffold(
         body: SafeArea(
             child: Center(
@@ -25,10 +27,10 @@ class ChangeUserDataView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               GestureDetector(
-                onTap: () => Get.back(),
-                child: const Icon(Icons.arrow_back, size: 30)),
+                  onTap: () => Get.back(),
+                  child: const Icon(Icons.arrow_back, size: 30)),
               Text(
-                "Change Your $data",
+                "Change $data user",
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -43,6 +45,7 @@ class ChangeUserDataView extends StatelessWidget {
             height: 50.0,
           ),
           OutlineTextFieldWidget(
+            controller: controller.textController,
             hintText: data,
           ),
           const SizedBox(
@@ -52,7 +55,9 @@ class ChangeUserDataView extends StatelessWidget {
             text: "Save",
             height: 50,
             width: Get.size.width,
-            onTap: () {},
+            onTap: () {
+              controller.checkTextField(context, data);
+            },
             borderRadius: 10,
             bgColor: const Color.fromARGB(255, 80, 165, 255),
             fontSize: 18,
