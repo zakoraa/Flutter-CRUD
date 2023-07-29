@@ -34,7 +34,7 @@ class AddOrEditPageTemplate extends StatelessWidget {
                   height: Get.size.height * 0.9,
                   width: Get.size.width,
                   decoration: BoxDecoration(
-                      color: const Color.fromARGB(139, 158, 158, 158),
+                      color: const Color.fromARGB(138, 110, 110, 110),
                       borderRadius: BorderRadius.circular(20)),
                   child: Center(
                       child: Column(
