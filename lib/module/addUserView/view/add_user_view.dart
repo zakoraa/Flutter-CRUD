@@ -12,9 +12,12 @@ class AddUserView extends StatelessWidget {
         profilePictureIcon: Icons.add,
         form: Column(
           children: const [
-            UnderlineTextFieldWidget(hintText: "Username", prefixIcon: Icons.person),
-            UnderlineTextFieldWidget(hintText: "Email", prefixIcon: Icons.email),
-            UnderlineTextFieldWidget(hintText: "Password", prefixIcon: Icons.key),
+            UnderlineTextFieldWidget(
+                hintText: "Username", prefixIcon: Icons.person),
+            UnderlineTextFieldWidget(
+                hintText: "Email", prefixIcon: Icons.email),
+            UnderlineTextFieldWidget(
+                hintText: "Password", prefixIcon: Icons.key),
             UnderlineTextFieldWidget(
                 hintText: "Confirm Password", prefixIcon: Icons.key),
           ],
