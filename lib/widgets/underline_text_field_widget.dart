@@ -15,6 +15,7 @@ class UnderlineTextFieldWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 10,bottom: 20),
       child: TextField(
+        controller: controller,
         cursorColor: Colors.white,
         decoration: InputDecoration(
             prefixIcon: Icon(
