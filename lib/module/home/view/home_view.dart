@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tahap1_crud/module/addUserView/view/add_user_view.dart';
 import 'package:tahap1_crud/module/home/widgets/list_tile_widget.dart';
 
+import '../../addUserView/view/add_user_view.dart';
 import '../controller/home_controller.dart';
 
 class HomeView extends StatelessWidget {
@@ -13,9 +13,9 @@ class HomeView extends StatelessWidget {
     HomeController controller = Get.put(HomeController());
     return Scaffold(
         body: SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
       child: Center(
         child: SizedBox(
-          height: Get.size.height,
           width: Get.size.width * 0.9,
           child: SafeArea(
             child: Padding(

@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 
 class UnderlineTextFieldWidget extends StatelessWidget {
   const UnderlineTextFieldWidget(
-      {super.key, required this.hintText, required this.prefixIcon, this.controller});
+      {super.key,
+      required this.hintText,
+      required this.prefixIcon,
+      this.controller});
 
   final String hintText;
   final dynamic prefixIcon;
@@ -13,7 +16,7 @@ class UnderlineTextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 10,bottom: 20),
+      padding: const EdgeInsets.only(right: 10, bottom: 20),
       child: TextField(
         controller: controller,
         cursorColor: Colors.white,

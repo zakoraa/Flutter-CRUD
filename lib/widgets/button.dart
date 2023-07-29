@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 
 class ButtonWidget extends StatelessWidget {
   const ButtonWidget(
-      {super.key, required this.text,
+      {super.key,
+      required this.text,
       required this.height,
       required this.width,
       required this.onTap,

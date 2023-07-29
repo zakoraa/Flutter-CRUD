@@ -52,7 +52,7 @@ class UserService {
   }
 
   Future updateUser(
-    String id,
+    int id,
     String username,
     String email,
     String password,
@@ -74,7 +74,7 @@ class UserService {
     }
   }
 
-  Future deleteUser(String id) async {
+  Future deleteUser(int id) async {
     try {
       Uri url =
           Uri.parse("https://capekngoding.com/6282197504499/api/users/$id");

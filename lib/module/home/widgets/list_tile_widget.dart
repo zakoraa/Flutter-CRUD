@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tahap1_crud/module/editUserView/view/edit_user_view.dart';
+import 'package:tahap1_crud/module/home/controller/home_controller.dart';
 
+import '../../../service/user_service.dart';
 import '../../../widgets/button.dart';
 
 class ListTileWidget extends StatelessWidget {
@@ -11,6 +13,7 @@ class ListTileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    HomeController controller = Get.find<HomeController>();
     return Container(
         width: Get.size.width,
         padding: const EdgeInsets.all(15),
@@ -35,20 +38,24 @@ class ListTileWidget extends StatelessWidget {
                 const SizedBox(
                   width: 10.0,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      user.username,
-                      style: const TextStyle(fontSize: 18),
-                    ),
-                    const SizedBox(
-                      height: 2.0,
-                    ),
-                    Text(
-                      user.email,
-                    ),
-                  ],
+                SizedBox(
+                  width: 140,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        user.username,
+                        style: const TextStyle(fontSize: 18),
+                      ),
+                      const SizedBox(
+                        height: 5.0,
+                      ),
+                      Text(
+                        user.email,
+                        style: const TextStyle(color: Colors.grey),
+                      ),
+                    ],
+                  ),
                 )
               ],
             ),
@@ -68,7 +75,10 @@ class ListTileWidget extends StatelessWidget {
                   height: 10.0,
                 ),
                 ButtonWidget(
-                    onTap: () {},
+                    onTap: () {
+                      UserService().deleteUser(user.id);
+                      controller.deleteUserSuccess(context);
+                    },
                     text: "DELETE",
                     height: 30,
                     width: 100,
