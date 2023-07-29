@@ -5,11 +5,13 @@ class ButtonUtils extends StatelessWidget {
       {required this.text,
       required this.height,
       required this.width,
+      required this.onTap,
       required this.borderRadius,
       required this.bgColor});
   final String text;
   final double height, width, borderRadius;
   final dynamic bgColor;
+  final onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class ButtonUtils extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(borderRadius),
         // splashColor: Colors.red,
-        onTap: () {},
+        onTap: onTap,
         child: Container(
           height: height,
           width: width,
