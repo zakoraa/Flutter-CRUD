@@ -1,5 +1,6 @@
 class User {
-  String? id, username, email, password, profilePicture;
+  int? id;
+  String? username, email, password, profilePicture;
 
   User({
     required this.id,
