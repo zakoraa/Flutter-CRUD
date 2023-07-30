@@ -49,7 +49,7 @@ class EditUserView extends StatelessWidget {
             style: const TextStyle(color: Colors.grey, fontSize: 14),
           ),
           const SizedBox(
-            height: 20.0,
+            height: 10.0,
           ),
         ],
       ),

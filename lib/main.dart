@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
           textTheme: const TextTheme(
         bodyText2: TextStyle(
-          fontSize: 16,
+          fontSize: 12,
           color: Colors.white,
         ),
       )),

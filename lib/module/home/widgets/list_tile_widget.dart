@@ -27,25 +27,25 @@ class ListTileWidget extends StatelessWidget {
             Row(
               children: [
                 ClipRRect(
-                    borderRadius: BorderRadius.circular(70),
+                    borderRadius: BorderRadius.circular(60),
                     child: Image.network(
                       user.profilePicture == ""
                           ? 'https://icon-library.com/images/default-profile-icon/default-profile-icon-6.jpg'
                           : user.profilePicture,
-                      height: 70,
-                      width: 70,
+                      height: 60,
+                      width: 60,
                     )),
                 const SizedBox(
                   width: 10.0,
                 ),
                 SizedBox(
-                  width: 140,
+                  width: Get.size.width * 0.3,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         user.username,
-                        style: const TextStyle(fontSize: 18),
+                        style: const TextStyle(fontSize: 16),
                       ),
                       const SizedBox(
                         height: 5.0,
@@ -67,8 +67,9 @@ class ListTileWidget extends StatelessWidget {
                           transition: Transition.rightToLeft);
                     },
                     text: "EDIT",
-                    height: 30,
-                    width: 100,
+                    fontSize: 12,
+                    height: 40,
+                    width: Get.size.width * 0.25,
                     borderRadius: 5,
                     bgColor: const Color.fromARGB(255, 80, 165, 255)),
                 const SizedBox(
@@ -79,8 +80,9 @@ class ListTileWidget extends StatelessWidget {
                       controller.deleteUserSuccess(context, user);
                     },
                     text: "DELETE",
-                    height: 30,
-                    width: 100,
+                    fontSize: 12,
+                    height: 40,
+                    width: Get.size.width * 0.25,
                     borderRadius: 5,
                     bgColor: const Color.fromARGB(255, 255, 92, 80)),
               ],

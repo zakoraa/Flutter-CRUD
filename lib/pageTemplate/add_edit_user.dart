@@ -45,24 +45,27 @@ class AddOrEditPageTemplate extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: GestureDetector(
-                                  onTap: () => Get.back(),
-                                  child: const Icon(
-                                    Icons.arrow_back,
-                                    size: 40,
-                                  )),
+                            SizedBox(
+                              width: Get.size.width * 0.08,
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: GestureDetector(
+                                    onTap: () => Get.back(),
+                                    child: const Icon(
+                                      Icons.arrow_back,
+                                      size: 35,
+                                    )),
+                              ),
                             ),
                             Text(
                               titlePage!,
                               style: const TextStyle(
-                                fontSize: 25,
+                                fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            const SizedBox(
-                              width: 60.0,
+                            SizedBox(
+                              width: Get.size.width * 0.10,
                             ),
                           ],
                         ),
@@ -75,23 +78,24 @@ class AddOrEditPageTemplate extends StatelessWidget {
                             Stack(
                               children: [
                                 ClipRRect(
-                                    borderRadius: BorderRadius.circular(200),
+                                    borderRadius: BorderRadius.circular(
+                                        Get.size.height * 0.2),
                                     child: Image.network(
                                       'https://icon-library.com/images/default-profile-icon/default-profile-icon-6.jpg',
-                                      height: 200,
-                                      width: 200,
+                                      height: Get.size.height * 0.2,
+                                      width: Get.size.height * 0.2,
                                     )),
                                 Positioned(
                                   bottom: 5,
                                   right: 10,
                                   child: Container(
-                                      height: 40,
-                                      width: 40,
+                                      height: Get.size.height * 0.055,
+                                      width: Get.size.height * 0.055,
                                       decoration: BoxDecoration(
                                           color: const Color.fromARGB(
                                               255, 80, 165, 255),
-                                          borderRadius:
-                                              BorderRadius.circular(40)),
+                                          borderRadius: BorderRadius.circular(
+                                              Get.size.height * 0.055)),
                                       child: Center(
                                         child: IconButton(
                                             onPressed:
@@ -105,19 +109,19 @@ class AddOrEditPageTemplate extends StatelessWidget {
                               ],
                             ),
                             const SizedBox(
-                              height: 70.0,
+                              height: 60.0,
                             ),
                             form,
                             const SizedBox(
-                              height: 20.0,
+                              height: 10.0,
                             ),
                             ButtonWidget(
                                 text: buttonText!,
-                                height: 50,
+                                height: Get.size.height * 0.065,
                                 width: Get.size.width * 0.7,
                                 onTap: onTapButton,
                                 borderRadius: 10,
-                                fontSize: 18,
+                                fontSize: Get.size.height * 0.02,
                                 bgColor:
                                     const Color.fromARGB(255, 80, 165, 255))
                           ],
