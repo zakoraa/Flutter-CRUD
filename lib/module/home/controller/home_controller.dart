@@ -16,7 +16,7 @@ class HomeController extends GetxController {
   RxList<User> userDataList = <User>[].obs;
   RxBool isLoading = true.obs;
 
-  void getUserData() async {
+  Future<void> getUserData() async {
     final userData = await userService.getUsers();
     if (userData.isNotEmpty) {
       userDataList.value = userData;
@@ -27,5 +27,11 @@ class HomeController extends GetxController {
   void deleteUserSuccess(BuildContext context) async {
     ScaffoldMessengerUtils.showFloatingSnackBar(
         context, "Delete User Success", const Color.fromARGB(255, 68, 212, 24));
+  }
+
+  Future<void> onRefresh() async {
+    isLoading.value = true;
+    await getUserData();
+    isLoading.value = false;
   }
 }
