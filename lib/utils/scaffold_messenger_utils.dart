@@ -8,6 +8,9 @@ class ScaffoldMessengerUtils {
       behavior: SnackBarBehavior.floating,
       content: Text(
         message,
+        style: const TextStyle(
+          color: Colors.white,
+        ),
       ),
       backgroundColor: bgColor,
     ));
