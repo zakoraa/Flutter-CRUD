@@ -22,7 +22,7 @@ class AddUserView extends StatelessWidget {
               hintText: "Profile Picture",
               prefixIcon: Icons.link),
           const Text(
-            "Profile Picture must be URL Link with format .png, .jpg, .jpeg",
+            "Profile Picture must be URL Link with format .png, .jpg, .jpeg OR from https://encrypted-tbn0.gstatic.com",
             style: TextStyle(
               color: Colors.grey,
             ),
@@ -48,7 +48,8 @@ class AddUserView extends StatelessWidget {
               prefixIcon: Icons.key),
         ],
       ),
-      buttonText: homeController.isLoading.value == true ? "Loading..." : "Add User",
+      buttonText:
+          homeController.isLoading.value == true ? "Loading..." : "Add User",
       onTapButton: () => controller.checkTextField(context),
     );
   }

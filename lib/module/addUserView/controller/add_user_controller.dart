@@ -22,7 +22,7 @@ class AddUserController extends GetxController {
         .then((value) {
       ScaffoldMessengerUtils.showFloatingSnackBar(
           context, "Add User Success", const Color.fromARGB(255, 80, 165, 255));
-      profilePictureC!.text = ""; 
+      profilePictureC!.text = "";
       username.text = "";
       email.text = "";
       password.text = "";
@@ -57,7 +57,13 @@ class AddUserController extends GetxController {
                 ".jpg" ||
             profilePictureC!.text.substring(profilePictureC!.text.length - 5,
                     profilePictureC!.text.length) ==
-                ".jpeg") {
+                ".jpeg" ||
+            profilePictureC!.text.substring(profilePictureC!.text.length - 4,
+                    profilePictureC!.text.length) ==
+                "=CAU" ||
+            profilePictureC!.text.contains(".jpg") ||
+            profilePictureC!.text.contains(".jpeg") ||
+            profilePictureC!.text.contains(".png") || profilePictureC!.text.contains("image")) {
           addUser(context, profilePicture: profilePictureC!.text);
         } else {
           addUser(context);

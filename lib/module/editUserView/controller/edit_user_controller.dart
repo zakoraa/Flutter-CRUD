@@ -65,7 +65,14 @@ class EditUserController extends GetxController {
               ".jpg" ||
           profilePictureC!.text.substring(profilePictureC!.text.length - 5,
                   profilePictureC!.text.length) ==
-              ".jpeg") {
+              ".jpeg" ||
+          profilePictureC!.text.substring(profilePictureC!.text.length - 4,
+                  profilePictureC!.text.length) ==
+              "=CAU" ||
+          profilePictureC!.text.contains(".jpg") ||
+          profilePictureC!.text.contains(".jpeg") ||
+          profilePictureC!.text.contains(".png") ||
+          profilePictureC!.text.contains("image")) {
         updateUser(context, profilePicture: profilePictureC!.text);
       } else {
         updateUser(context);

@@ -33,7 +33,7 @@ class EditUserView extends StatelessWidget {
               hintText: "Profile Picture",
               prefixIcon: Icons.link),
           const Text(
-            "Profile Picture must be URL Link with format .png, .jpg, .jpeg",
+            "Profile Picture must be URL Link with format .png, .jpg, .jpeg OR from https://encrypted-tbn0.gstatic.com",
             style: TextStyle(
               color: Colors.grey,
             ),
