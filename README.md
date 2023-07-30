@@ -1,16 +1,9 @@
-# tahap1_crud
+# Add Or Edit Profile Picture In Recommended Way
 
-A new Flutter project.
+1) Search for the image you want (In this method via Google chrome)
 
-## Getting Started
+2) Open the image in a new tab
 
-This project is a starting point for a Flutter application.
+3) Copy the tab link ( Recommends URL links in formats ending in .png, .jpg, .jpeg or URL link from https://encrypted-tbn0.gstatic.com/images? )
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
