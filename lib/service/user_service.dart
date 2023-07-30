@@ -60,7 +60,7 @@ class UserService {
     try {
       Uri url =
           Uri.parse("https://capekngoding.com/6282197504499/api/users/$id");
-      final response = await http.put(url, body: jsonEncode({
+      final response = await http.post(url, body: jsonEncode({
         "username": username,
         "email": email,
         "password": password,
