@@ -1,11 +1,13 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: avoid_print
+
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tahap1_crud/module/home/controller/home_controller.dart';
-
 import '../../../service/user_service.dart';
 import '../../../utils/scaffold_messenger_utils.dart';
 
 class AddUserController extends GetxController {
+  TextEditingController? profilePictureC = TextEditingController();
   TextEditingController username = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
@@ -14,21 +16,18 @@ class AddUserController extends GetxController {
   UserService userService = Get.put(UserService());
   HomeController homeController = Get.put(HomeController());
 
-  RxBool isLoading = true.obs;
-
-  void addUser(BuildContext context) {
-    isLoading.value = false;
+  void addUser(BuildContext context, {profilePicture = ""}) {
     userService
-        .addUser(username.text, email.text, password.text, null)
+        .addUser(username.text, email.text, password.text, profilePicture)
         .then((value) {
       ScaffoldMessengerUtils.showFloatingSnackBar(
           context, "Add User Success", const Color.fromARGB(255, 80, 165, 255));
+      profilePictureC!.text = ""; 
       username.text = "";
       email.text = "";
       password.text = "";
       confirmPassword.text = "";
       homeController.onRefresh();
-      isLoading.value = true;
     });
   }
 
@@ -43,7 +42,26 @@ class AddUserController extends GetxController {
           const Color.fromARGB(255, 255, 92, 80));
     } else {
       if (password.text == confirmPassword.text) {
-        addUser(context);
+        if (profilePictureC!.text.isNotEmpty &&
+            profilePictureC!.text.length < 10) {
+          ScaffoldMessengerUtils.showFloatingSnackBar(
+              context,
+              "Profile picture must be more than 10 characters!",
+              const Color.fromARGB(255, 255, 92, 80));
+        } else if (profilePictureC!.text == "" ||
+            profilePictureC!.text.substring(profilePictureC!.text.length - 4,
+                    profilePictureC!.text.length) ==
+                ".png" ||
+            profilePictureC!.text.substring(profilePictureC!.text.length - 4,
+                    profilePictureC!.text.length) ==
+                ".jpg" ||
+            profilePictureC!.text.substring(profilePictureC!.text.length - 5,
+                    profilePictureC!.text.length) ==
+                ".jpeg") {
+          addUser(context, profilePicture: profilePictureC!.text);
+        } else {
+          addUser(context);
+        }
       } else {
         ScaffoldMessengerUtils.showFloatingSnackBar(
             context,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tahap1_crud/module/addUserView/controller/add_user_controller.dart';
+import 'package:tahap1_crud/module/home/controller/home_controller.dart';
 import 'package:tahap1_crud/pageTemplate/add_edit_user.dart';
 import '../../../widgets/underline_text_field_widget.dart';
 
@@ -9,13 +10,26 @@ class AddUserView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    HomeController homeController = Get.put(HomeController());
     AddUserController controller = Get.put(AddUserController());
+
     return AddOrEditPageTemplate(
       titlePage: "ADD USER",
-      profilePictureIcon: Icons.add,
-      onPressedProfilePictureIcon: () {},
       form: Column(
         children: [
+          UnderlineTextFieldWidget(
+              controller: controller.profilePictureC,
+              hintText: "Profile Picture",
+              prefixIcon: Icons.link),
+          const Text(
+            "Profile Picture must be URL Link with format .png, .jpg, .jpeg",
+            style: TextStyle(
+              color: Colors.grey,
+            ),
+          ),
+          const SizedBox(
+            height: 40.0,
+          ),
           UnderlineTextFieldWidget(
               controller: controller.username,
               hintText: "Username",
@@ -34,7 +48,7 @@ class AddUserView extends StatelessWidget {
               prefixIcon: Icons.key),
         ],
       ),
-      buttonText: "Add User",
+      buttonText: homeController.isLoading.value == true ? "Loading..." : "Add User",
       onTapButton: () => controller.checkTextField(context),
     );
   }

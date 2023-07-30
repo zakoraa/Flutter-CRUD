@@ -14,11 +14,13 @@ class EditUserController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    profilePictureC!.text = user.profilePicture;
     username.text = user.username;
     email.text = user.email;
     password.text = user.password;
   }
 
+  TextEditingController? profilePictureC = TextEditingController();
   TextEditingController username = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
@@ -28,10 +30,11 @@ class EditUserController extends GetxController {
 
   RxBool isLoading = true.obs;
 
-  void updateUser(BuildContext context) {
+  void updateUser(BuildContext context, {profilePicture = ""}) {
     isLoading.value = false;
     userService
-        .updateUser(user.id, username.text, email.text, password.text, null)
+        .updateUser(
+            user.id, username.text, email.text, password.text, profilePicture)
         .then((value) {
       ScaffoldMessengerUtils.showFloatingSnackBar(context,
           "Update User Success", const Color.fromARGB(255, 80, 165, 255));
@@ -47,7 +50,26 @@ class EditUserController extends GetxController {
           "There is still something that hasn't been filled. Please fill it!",
           const Color.fromARGB(255, 255, 92, 80));
     } else {
-      updateUser(context);
+      if (profilePictureC!.text.isNotEmpty &&
+          profilePictureC!.text.length < 10) {
+        ScaffoldMessengerUtils.showFloatingSnackBar(
+            context,
+            "Profile picture must be more than 10 characters!",
+            const Color.fromARGB(255, 255, 92, 80));
+      } else if (profilePictureC!.text == "" ||
+          profilePictureC!.text.substring(profilePictureC!.text.length - 4,
+                  profilePictureC!.text.length) ==
+              ".png" ||
+          profilePictureC!.text.substring(profilePictureC!.text.length - 4,
+                  profilePictureC!.text.length) ==
+              ".jpg" ||
+          profilePictureC!.text.substring(profilePictureC!.text.length - 5,
+                  profilePictureC!.text.length) ==
+              ".jpeg") {
+        updateUser(context, profilePicture: profilePictureC!.text);
+      } else {
+        updateUser(context);
+      }
     }
   }
 }

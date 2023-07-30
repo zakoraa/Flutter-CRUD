@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:tahap1_crud/module/addUserView/controller/add_user_controller.dart';
-import 'package:tahap1_crud/module/home/widgets/list_tile_widget.dart';
+import 'package:tahap1_crud/module/home/widget/list_tile_widget.dart';
 
 import '../../addUserView/view/add_user_view.dart';
 import '../controller/home_controller.dart';
@@ -12,7 +12,7 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    HomeController controller = Get.put(HomeController());
+    HomeController controller = Get.put(HomeController()); 
     return Scaffold(
       body: Obx(
         () => LiquidPullToRefresh(

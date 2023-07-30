@@ -34,6 +34,7 @@ class ListTileWidget extends StatelessWidget {
                           : user.profilePicture,
                       height: 60,
                       width: 60,
+                      fit: BoxFit.cover,
                     )),
                 const SizedBox(
                   width: 10.0,
@@ -76,7 +77,8 @@ class ListTileWidget extends StatelessWidget {
                   height: 10.0,
                 ),
                 ButtonWidget(
-                    onTap: () => controller.confirmDeleteUserData(context, user),
+                    onTap: () =>
+                        controller.confirmDeleteUserData(context, user),
                     text: "DELETE",
                     fontSize: 12,
                     height: 40,

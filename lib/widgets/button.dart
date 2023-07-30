@@ -35,15 +35,10 @@ class ButtonWidget extends StatelessWidget {
               color: bgColor,
               borderRadius: BorderRadius.circular(borderRadius)),
           child: Center(
-            child: !controller.isLoading.value
-                ? const CircularProgressIndicator(
-                    color: Colors.grey,
-                  )
-                : Text(
-                    text,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: fontSize),
-                  ),
+            child: Text(
+              text,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: fontSize),
+            ),
           ),
         ),
       ),

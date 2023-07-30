@@ -15,6 +15,7 @@ class HomeController extends GetxController {
 
   RxList<User> userDataList = <User>[].obs;
   RxBool isLoading = true.obs;
+  RxBool updateSuccessed = false.obs;
 
   Future<void> getUserData() async {
     final userData = await userService.getUsers();
@@ -40,6 +41,12 @@ class HomeController extends GetxController {
                 onTap: () {
                   Get.back(canPop: false);
                   deleteUserSuccess(context, user);
+                  if (updateSuccessed.value == true) {
+                    ScaffoldMessengerUtils.showFloatingSnackBar(
+                        context,
+                        "Delete User Success",
+                        const Color.fromARGB(255, 80, 165, 255));
+                  }
                 },
                 child: Container(
                   margin: const EdgeInsets.all(10),
@@ -62,16 +69,12 @@ class HomeController extends GetxController {
   }
 
   void deleteUserSuccess(BuildContext context, user) {
-    UserService().deleteUser(user.id).then((value) {
-      ScaffoldMessengerUtils.showFloatingSnackBar(context,
-          "Delete User Success", const Color.fromARGB(255, 80, 165, 255));
-      onRefresh();
-    });
+    UserService().deleteUser(user.id).then((value) => onRefresh());
+    updateSuccessed.value = true;
   }
 
   Future<void> onRefresh() async {
     isLoading.value = true;
     await getUserData();
-    isLoading.value = false;
   }
 }
