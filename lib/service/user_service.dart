@@ -60,12 +60,12 @@ class UserService {
     try {
       Uri url =
           Uri.parse("https://capekngoding.com/6282197504499/api/users/$id");
-      final response = await http.put(url, body: {
+      final response = await http.put(url, body: jsonEncode({
         "username": username,
         "email": email,
         "password": password,
         "profile_picture": profilePicture ?? "",
-      });
+      }));
       var data = jsonDecode(response.body);
       print("Updated Data : ${data}");
       return data;
