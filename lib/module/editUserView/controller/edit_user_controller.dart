@@ -28,6 +28,18 @@ class EditUserController extends GetxController {
 
   RxBool isLoading = true.obs;
 
+  void updateUser(BuildContext context) {
+    isLoading.value = false;
+    userService
+        .updateUser(user.id, username.text, email.text, password.text, null)
+        .then((value) {
+      ScaffoldMessengerUtils.showFloatingSnackBar(context,
+          "Update User Success", const Color.fromARGB(255, 80, 165, 255));
+      homeController.onRefresh();
+      isLoading.value = true;
+    });
+  }
+
   void checkTextField(BuildContext context) {
     if (username.text.isEmpty || email.text.isEmpty || password.text.isEmpty) {
       ScaffoldMessengerUtils.showFloatingSnackBar(
@@ -35,15 +47,7 @@ class EditUserController extends GetxController {
           "There is still something that hasn't been filled. Please fill it!",
           const Color.fromARGB(255, 255, 92, 80));
     } else {
-      isLoading.value = false;
-      userService
-          .updateUser(user.id,username.text, email.text, password.text, null)
-          .then((value) {
-        ScaffoldMessengerUtils.showFloatingSnackBar(context,
-            "Update User Success", const Color.fromARGB(255, 80, 165, 255));
-        homeController.onRefresh();
-        isLoading.value = true;
-      });
+      updateUser(context);
     }
   }
 }
