@@ -76,9 +76,7 @@ class ListTileWidget extends StatelessWidget {
                   height: 10.0,
                 ),
                 ButtonWidget(
-                    onTap: () {
-                      controller.deleteUserSuccess(context, user);
-                    },
+                    onTap: () => controller.confirmDeleteUserData(context, user),
                     text: "DELETE",
                     fontSize: 12,
                     height: 40,
