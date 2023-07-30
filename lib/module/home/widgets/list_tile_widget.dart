@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tahap1_crud/module/editUserView/view/edit_user_view.dart';
@@ -29,9 +31,7 @@ class ListTileWidget extends StatelessWidget {
                 ClipRRect(
                     borderRadius: BorderRadius.circular(70),
                     child: Image.network(
-                      user.profilePicture == ""
-                          ? 'https://icon-library.com/images/default-profile-icon/default-profile-icon-6.jpg'
-                          : user.profilePicture,
+                      user.profilePicture,
                       height: 70,
                       width: 70,
                     )),
@@ -83,7 +83,7 @@ class ListTileWidget extends StatelessWidget {
                     height: 30,
                     width: 100,
                     borderRadius: 5,
-                    bgColor: const Color.fromARGB(255, 255, 92, 80)),
+                    bgColor: const Color.fromARGB(255, 80, 165, 255)),
               ],
             )
           ],
