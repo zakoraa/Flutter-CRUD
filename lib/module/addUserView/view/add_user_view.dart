@@ -13,6 +13,7 @@ class AddUserView extends StatelessWidget {
     return AddOrEditPageTemplate(
       titlePage: "ADD USER",
       profilePictureIcon: Icons.add,
+      onPressedProfilePictureIcon: () {},
       form: Column(
         children: [
           UnderlineTextFieldWidget(

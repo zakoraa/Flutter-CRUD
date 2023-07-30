@@ -32,7 +32,7 @@ class HomeController extends GetxController {
         builder: (BuildContext context) {
           return AlertDialog(
             title: const Text(
-              "Are you sure to delete this user's data?",
+              "Are you sure to delete this user?",
               style: TextStyle(color: Colors.white, fontSize: 14),
             ),
             actions: [
