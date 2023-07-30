@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, unnecessary_brace_in_string_interps
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -19,8 +19,7 @@ class UserService {
       if (userData.isNotEmpty) {
         print("Get users success");
       }
-
-      print(userData);
+      print("Data : ${userData}");
 
       return User.usersFromSnapshot(userData);
     } catch (e) {
@@ -41,10 +40,11 @@ class UserService {
         "username": username,
         "email": email,
         "password": password,
-        "profile_picture": profilePicture ?? "",
+        "profile_picture": profilePicture ?? 'https://icon-library.com/images/default-profile-icon/default-profile-icon-6.jpg',
       });
 
       var data = jsonDecode(response.body);
+      print("Posted Data : ${data}");
       return data;
     } catch (e) {
       print(e.toString());
@@ -68,6 +68,7 @@ class UserService {
         "profile_picture": profilePicture ?? "",
       });
       var data = jsonDecode(response.body);
+      print("Updated Data : ${data}");
       return data;
     } catch (e) {
       print(e.toString());
@@ -81,6 +82,7 @@ class UserService {
       final response = await http.delete(url);
 
       var data = jsonDecode(response.body);
+      print("Deleted Data : ${data}");
       return data;
     } catch (e) {
       print(e.toString());
