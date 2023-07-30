@@ -16,6 +16,22 @@ class AddUserController extends GetxController {
 
   RxBool isLoading = true.obs;
 
+  void addUser(BuildContext context) {
+    isLoading.value = false;
+    userService
+        .addUser(username.text, email.text, password.text, null)
+        .then((value) {
+      ScaffoldMessengerUtils.showFloatingSnackBar(
+          context, "Add User Success", const Color.fromARGB(255, 80, 165, 255));
+      username.text = "";
+      email.text = "";
+      password.text = "";
+      confirmPassword.text = "";
+      homeController.onRefresh();
+      isLoading.value = true;
+    });
+  }
+
   void checkTextField(BuildContext context) {
     if (username.text.isEmpty ||
         email.text.isEmpty ||
@@ -27,19 +43,7 @@ class AddUserController extends GetxController {
           const Color.fromARGB(255, 255, 92, 80));
     } else {
       if (password.text == confirmPassword.text) {
-        isLoading.value = false;
-        userService
-            .addUser(username.text, email.text, password.text, null)
-            .then((value) {
-          ScaffoldMessengerUtils.showFloatingSnackBar(context,
-              "Add User Success", const Color.fromARGB(255, 80, 165, 255));
-          username.text = "";
-          email.text = "";
-          password.text = "";
-          confirmPassword.text = "";
-          homeController.onRefresh();
-          isLoading.value = true;
-        });
+        addUser(context);
       } else {
         ScaffoldMessengerUtils.showFloatingSnackBar(
             context,
