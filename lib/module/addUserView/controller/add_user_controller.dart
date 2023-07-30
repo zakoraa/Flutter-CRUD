@@ -63,7 +63,9 @@ class AddUserController extends GetxController {
                 "=CAU" ||
             profilePictureC!.text.contains(".jpg") ||
             profilePictureC!.text.contains(".jpeg") ||
-            profilePictureC!.text.contains(".png")) {
+            profilePictureC!.text.contains(".png") ||
+            profilePictureC!.text.contains("image?") ||
+            profilePictureC!.text.contains("images?")) {
           addUser(context, profilePicture: profilePictureC!.text);
         } else {
           addUser(context);
