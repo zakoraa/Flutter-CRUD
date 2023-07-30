@@ -111,17 +111,15 @@ class AddOrEditPageTemplate extends StatelessWidget {
                             const SizedBox(
                               height: 20.0,
                             ),
-                            buttonText == null
-                                ? const SizedBox.shrink()
-                                : ButtonWidget(
-                                    text: buttonText!,
-                                    height: 50,
-                                    width: Get.size.width * 0.7,
-                                    onTap: onTapButton,
-                                    borderRadius: 10,
-                                    fontSize: 18,
-                                    bgColor:
-                                        const Color.fromARGB(255, 80, 165, 255))
+                            ButtonWidget(
+                                text: buttonText!,
+                                height: 50,
+                                width: Get.size.width * 0.7,
+                                onTap: onTapButton,
+                                borderRadius: 10,
+                                fontSize: 18,
+                                bgColor:
+                                    const Color.fromARGB(255, 80, 165, 255))
                           ],
                         ),
                       ),
