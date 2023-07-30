@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
+import 'package:tahap1_crud/module/addUserView/controller/add_user_controller.dart';
 import 'package:tahap1_crud/module/home/widgets/list_tile_widget.dart';
 
 import '../../addUserView/view/add_user_view.dart';
@@ -21,11 +22,10 @@ class HomeView extends StatelessWidget {
           springAnimationDurationInMilliseconds: 500,
           color: Colors.grey,
           child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
+            physics: const AlwaysScrollableScrollPhysics(),
             child: Center(
               child: SizedBox(
                 width: Get.size.width * 0.9,
-                height: Get.size.height + 100,
                 child: SafeArea(
                   child: Padding(
                     padding: const EdgeInsets.only(top: 30),
@@ -57,6 +57,16 @@ class HomeView extends StatelessWidget {
                         const SizedBox(
                           height: 50.0,
                         ),
+                        controller.userDataList.isEmpty &&
+                                controller.isLoading.value == false
+                            ? const Text(
+                                "User is empty",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.grey,
+                                ),
+                              )
+                            : const SizedBox.shrink(),
                         controller.isLoading.value
                             ? const Text(
                                 "Loading...",
@@ -65,11 +75,14 @@ class HomeView extends StatelessWidget {
                                   color: Colors.grey,
                                 ),
                               )
-                            : Column(
-                                children: controller.userDataList
-                                    .map((user) => ListTileWidget(user: user))
-                                    .toList(),
-                              )
+                            : controller.userDataList.isEmpty
+                                ? const SizedBox.shrink()
+                                : Column(
+                                    children: controller.userDataList
+                                        .map((user) =>
+                                            ListTileWidget(user: user))
+                                        .toList(),
+                                  )
                       ],
                     ),
                   ),
