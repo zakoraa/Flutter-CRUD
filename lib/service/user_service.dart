@@ -3,7 +3,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:tahap1_crud/model/user_model.dart';
-import 'package:uuid/uuid.dart';
 
 class UserService {
   Future getUsers() async {
@@ -35,19 +34,19 @@ class UserService {
   ) async {
     try {
       Uri url = Uri.parse("https://capekngoding.com/6282197504499/api/users");
-      final response = await http.post(url, body: {
-        "id": const Uuid().v4(),
-        "username": username,
-        "email": email,
-        "password": password,
-        "profile_picture": profilePicture ?? 'https://icon-library.com/images/default-profile-icon/default-profile-icon-6.jpg',
-      });
+      final response = await http.post(url,
+          body: jsonEncode({
+            "username": username,
+            "email": email,
+            "password": password,
+            "profile_picture": profilePicture ?? "",
+          }));
 
       var data = jsonDecode(response.body);
       print("Posted Data : ${data}");
       return data;
     } catch (e) {
-      print(e.toString());
+      print("Error : ${e.toString()}");
     }
   }
 
