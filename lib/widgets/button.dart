@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:tahap1_crud/module/addUserView/controller/add_user_controller.dart';
 
 class ButtonWidget extends StatelessWidget {
   const ButtonWidget(
@@ -19,6 +21,7 @@ class ButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AddUserController controller = Get.put(AddUserController());
     return Material(
       elevation: 0.0,
       color: Colors.transparent,
@@ -32,10 +35,15 @@ class ButtonWidget extends StatelessWidget {
               color: bgColor,
               borderRadius: BorderRadius.circular(borderRadius)),
           child: Center(
-            child: Text(
-              text,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: fontSize),
-            ),
+            child: !controller.isLoading.value
+                ? const CircularProgressIndicator(
+                    color: Colors.grey,
+                  )
+                : Text(
+                    text,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: fontSize),
+                  ),
           ),
         ),
       ),
