@@ -5,7 +5,7 @@ import 'package:tahap1_crud/service/user_service.dart';
 import 'package:tahap1_crud/utils/scaffold_messenger_utils.dart';
 
 class HomeController extends GetxController {
-  final UserService userService = UserService();
+  final UserService userService = Get.put(UserService());
 
   @override
   void onInit() {
@@ -20,13 +20,20 @@ class HomeController extends GetxController {
     final userData = await userService.getUsers();
     if (userData.isNotEmpty) {
       userDataList.value = userData;
+    } else {
+      userDataList.value = [];
     }
     isLoading.value = false;
   }
 
-  void deleteUserSuccess(BuildContext context) async {
-    ScaffoldMessengerUtils.showFloatingSnackBar(
-        context, "Delete User Success", const Color.fromARGB(255, 68, 212, 24));
+  void deleteUserSuccess(BuildContext context, user) {
+    UserService().deleteUser(user.id).then((value) {
+      ScaffoldMessengerUtils.showFloatingSnackBar(
+          context,
+          "Delete User Success",
+          const Color.fromARGB(255, 80, 165, 255));
+      onRefresh();
+    });
   }
 
   Future<void> onRefresh() async {
