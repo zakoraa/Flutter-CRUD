@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tahap1_crud/module/editUserView/view/edit_user_view.dart';
 import 'package:tahap1_crud/module/home/controller/home_controller.dart';
-
-import '../../../service/user_service.dart';
 import '../../../widgets/button.dart';
 
 class ListTileWidget extends StatelessWidget {
@@ -31,7 +29,9 @@ class ListTileWidget extends StatelessWidget {
                 ClipRRect(
                     borderRadius: BorderRadius.circular(70),
                     child: Image.network(
-                      user.profilePicture,
+                      user.profilePicture == ""
+                          ? 'https://icon-library.com/images/default-profile-icon/default-profile-icon-6.jpg'
+                          : user.profilePicture,
                       height: 70,
                       width: 70,
                     )),
@@ -76,14 +76,13 @@ class ListTileWidget extends StatelessWidget {
                 ),
                 ButtonWidget(
                     onTap: () {
-                      UserService().deleteUser(user.id);
-                      controller.deleteUserSuccess(context);
+                      controller.deleteUserSuccess(context, user);
                     },
                     text: "DELETE",
                     height: 30,
                     width: 100,
                     borderRadius: 5,
-                    bgColor: const Color.fromARGB(255, 80, 165, 255)),
+                    bgColor: const Color.fromARGB(255, 255, 92, 80)),
               ],
             )
           ],
