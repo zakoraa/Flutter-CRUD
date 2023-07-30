@@ -16,7 +16,8 @@ class User {
         username: json['username'],
         email: json['email'],
         password: json['password'],
-        profilePicture: json['profile_picture'] ?? "");
+        profilePicture: json['profile_picture'] ??
+            'https://icon-library.com/images/default-profile-icon/default-profile-icon-6.jpg');
   }
 
   static List<User> usersFromSnapshot(List snapshot) {
