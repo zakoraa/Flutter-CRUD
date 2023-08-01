@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tahap1_crud/model/user_model.dart';
 import 'package:tahap1_crud/service/user_service.dart';
-import 'package:tahap1_crud/utils/scaffold_messenger_utils.dart';
+import 'package:tahap1_crud/shared/utils/scaffold_messenger_utils.dart';
 
 class HomeController extends GetxController {
   final UserService userService = Get.put(UserService());

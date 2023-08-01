@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tahap1_crud/module/editUserView/controller/edit_user_controller.dart';
 import 'package:tahap1_crud/module/home/controller/home_controller.dart';
-import 'package:tahap1_crud/pageTemplate/add_edit_user.dart';
-import '../../../widgets/underline_text_field_widget.dart';
+import '../../../shared/pageTemplate/add_edit_user.dart';
+import '../../../shared/widgets/underline_text_field_widget.dart';
+
 
 class EditUserView extends StatelessWidget {
   const EditUserView({super.key, required this.user});
@@ -14,7 +15,7 @@ class EditUserView extends StatelessWidget {
   Widget build(BuildContext context) {
     HomeController homeController = Get.put(HomeController());
     EditUserController controller = Get.put(EditUserController(user: user));
-    return AddOrEditPageTemplate(
+    return Obx(()=>AddOrEditPageTemplate(
       titlePage: "UPDATE USER",
       form: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,8 +81,8 @@ class EditUserView extends StatelessWidget {
         ],
       ),
       buttonText:
-          homeController.isLoading.value == true ? "Loading..." : "Update User",
+          homeController.isLoading.value ? "Loading..." : "Update User",
       onTapButton: () => controller.checkTextField(context),
-    );
+    ));
   }
 }

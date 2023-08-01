@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tahap1_crud/module/addUserView/controller/add_user_controller.dart';
-import 'package:tahap1_crud/module/home/controller/home_controller.dart';
-import 'package:tahap1_crud/pageTemplate/add_edit_user.dart';
-import '../../../widgets/underline_text_field_widget.dart';
+import 'package:tahap1_crud/shared/pageTemplate/add_edit_user.dart';
+import '../../../shared/widgets/underline_text_field_widget.dart';
 
 class AddUserView extends StatelessWidget {
   const AddUserView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    HomeController homeController = Get.put(HomeController());
     AddUserController controller = Get.put(AddUserController());
 
-    return AddOrEditPageTemplate(
+    return Obx(()=>AddOrEditPageTemplate(
       titlePage: "ADD USER",
       form: Column(
         children: [
@@ -49,8 +47,8 @@ class AddUserView extends StatelessWidget {
         ],
       ),
       buttonText:
-          homeController.isLoading.value == true ? "Loading..." : "Add User",
+          controller.isLoading.value ? "Loading..." : "Add User",
       onTapButton: () => controller.checkTextField(context),
-    );
+    ));
   }
 }

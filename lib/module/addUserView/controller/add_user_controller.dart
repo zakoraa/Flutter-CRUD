@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tahap1_crud/module/home/controller/home_controller.dart';
 import '../../../service/user_service.dart';
-import '../../../utils/scaffold_messenger_utils.dart';
+import '../../../shared/utils/scaffold_messenger_utils.dart';
 
 class AddUserController extends GetxController {
   TextEditingController? profilePictureC = TextEditingController();
@@ -16,10 +16,14 @@ class AddUserController extends GetxController {
   UserService userService = Get.put(UserService());
   HomeController homeController = Get.put(HomeController());
 
+  RxBool isLoading = false.obs;
+
   void addUser(BuildContext context, {profilePicture = ""}) {
+    isLoading.value = true;
     userService
         .addUser(username.text, email.text, password.text, profilePicture)
         .then((value) {
+      isLoading.value = false;
       ScaffoldMessengerUtils.showFloatingSnackBar(
           context, "Add User Success", const Color.fromARGB(255, 80, 165, 255));
       profilePictureC!.text = "";

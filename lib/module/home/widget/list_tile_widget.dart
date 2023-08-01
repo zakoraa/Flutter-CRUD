@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tahap1_crud/module/editUserView/view/edit_user_view.dart';
 import 'package:tahap1_crud/module/home/controller/home_controller.dart';
-import '../../../widgets/button.dart';
+import '../../../shared/widgets/button.dart';
 
 class ListTileWidget extends StatelessWidget {
   const ListTileWidget({super.key, required this.user});

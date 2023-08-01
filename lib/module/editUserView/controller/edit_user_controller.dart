@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../service/user_service.dart';
-import '../../../utils/scaffold_messenger_utils.dart';
+import '../../../shared/utils/scaffold_messenger_utils.dart';
 import '../../home/controller/home_controller.dart';
 
 class EditUserController extends GetxController {
@@ -28,18 +28,18 @@ class EditUserController extends GetxController {
   UserService userService = Get.put(UserService());
   HomeController homeController = Get.put(HomeController());
 
-  RxBool isLoading = true.obs;
+  RxBool isLoading = false.obs;
 
   void updateUser(BuildContext context, {profilePicture = ""}) {
-    isLoading.value = false;
+    isLoading.value = true;
     userService
         .updateUser(
             user.id, username.text, email.text, password.text, profilePicture)
         .then((value) {
+      isLoading.value = false;
       ScaffoldMessengerUtils.showFloatingSnackBar(context,
           "Update User Success", const Color.fromARGB(255, 80, 165, 255));
       homeController.onRefresh();
-      isLoading.value = true;
     });
   }
 

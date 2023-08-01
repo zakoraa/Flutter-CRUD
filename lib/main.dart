@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:tahap1_crud/module/home/view/home_view.dart';
-import 'package:tahap1_crud/utils/scroll_behavior.dart';
+import 'package:tahap1_crud/shared/utils/scroll_behavior.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tahap1_crud/widgets/button.dart';
+import 'package:tahap1_crud/shared/widgets/button.dart';
 
 class AddOrEditPageTemplate extends StatelessWidget {
   const AddOrEditPageTemplate(
