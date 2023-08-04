@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tahap1_crud/module/addUserView/controller/add_user_controller.dart';
-import 'package:tahap1_crud/shared/pageTemplate/add_edit_user.dart';
+import '../../../shared/widgets/add_edit_user.dart';
 import '../../../shared/widgets/underline_text_field_widget.dart';
 
 class AddUserView extends StatelessWidget {
@@ -10,7 +10,6 @@ class AddUserView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AddUserController controller = Get.put(AddUserController());
-
     return Obx(()=>AddOrEditPageTemplate(
       titlePage: "ADD USER",
       form: Column(
