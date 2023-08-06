@@ -7,7 +7,7 @@ import 'package:tahap1_crud/model/user_model.dart';
 class UserService {
   Future getUsers() async {
     try {
-      Uri url = Uri.parse("https://capekngoding.com/6282197504499/api/users");
+      Uri url = Uri.parse("https://capekngoding.com/API_KEY/api/users");
       final response = await http.get(url);
 
       Map data = jsonDecode(response.body);
@@ -33,7 +33,7 @@ class UserService {
     String? profilePicture,
   ) async {
     try {
-      Uri url = Uri.parse("https://capekngoding.com/6282197504499/api/users");
+      Uri url = Uri.parse("https://capekngoding.com/API_KEY/api/users");
       final response = await http.post(url,
           body: jsonEncode({
             "username": username,
@@ -59,7 +59,7 @@ class UserService {
   ) async {
     try {
       Uri url =
-          Uri.parse("https://capekngoding.com/6282197504499/api/users/$id");
+          Uri.parse("https://capekngoding.com/API_KEY/api/users/$id");
       final response = await http.post(url, body: jsonEncode({
         "username": username,
         "email": email,
@@ -77,7 +77,7 @@ class UserService {
   Future deleteUser(int id) async {
     try {
       Uri url =
-          Uri.parse("https://capekngoding.com/6282197504499/api/users/$id");
+          Uri.parse("https://capekngoding.com/API_KEY/api/users/$id");
       final response = await http.delete(url);
 
       var data = jsonDecode(response.body);
