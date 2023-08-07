@@ -1,7 +1,7 @@
 # Simple CRUD App
 Simple CRUD App using Flutter with Getx & MVC architecture
 
-# View of the pages
+# View of pages
 <img src= "https://github.com/zakoraa/Flutter-CRUD/assets/129678009/75d0adc1-2985-4593-ae67-a9b384589895"  height = "550" width = "250"/>
 <img src= "https://github.com/zakoraa/Flutter-CRUD/assets/129678009/3c9fde58-c1c2-47a3-877c-aaec03bfc6cb"  height = "550" width = "250"/>
 <img src= "https://github.com/zakoraa/Flutter-CRUD/assets/129678009/13752e38-70e1-4a4e-a89b-3c8dae19f1ff"  height = "550" width = "250"/>
